@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: sovannlyna-html-v16-ingress
+  namespace: sovannlyna-html-v16
+  annotation:
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: v16.tinhlgkiddy.fun
+    http:
+      paths:
+      - path: /
+        pathType: Prefix  
+        backend:
+          service:
+            name: sovannlyna-html-v16-service 
+            port:
+              number: 8183
